@@ -16,7 +16,7 @@ $('#search-btn').click(
     type: 'GET',
     url:'https://api.spotify.com/v1/search?type=artist&query=' + searchQuery,
     dataType: "json",
-    success:Search,
+    success:SearchArtist,
     error:Fail
     });
 })
@@ -32,20 +32,20 @@ $('.searchResults').on('click', '.btn-primary', '', function(){
     });
   })
 
-function Search(response){
+function SearchArtist(response){
   response.artists.items.forEach(function(artist) {
     $('#userMessage').text("Here are the artists you were looking for:");
     $('#listofArtists').append("<li>" + 
       '<button class= "btn btn-primary" id="'+ artist.id +'" type="submit">'+ artist.name +'</button>' +"</li>"+ 
-      '<img src="' + artist.images[0].url + '" alt="jQuery" height="140">');   
+      '<img id="#rcorners3" src="' + artist.images[0].url + '" alt="jQuery" width="160" height="160">' + '<hr>');   
   })
 }
 
 function SearchAlbum(response){
   response.items.forEach(function(album) {
-    $('#userMessage1').text("Here are the albums for the artist selected:");
+    $('#userMessage1').text("Here are few albums of the artist selected:");
     $('#listofAlbums').append("<li>"  + album.name +"</li>"+ 
-      '<img src="' + album.images[0].url + '" alt="jQuery" height="140">');   
+      '<img src="' + album.images[0].url + '" alt="jQuery" width="160" height="160">' + '<hr>');   
   })
 }
 
