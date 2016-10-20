@@ -15,6 +15,7 @@ $( document ).ready(function() {
           $('#listofArtists').empty();
           $('#listofAlbums').empty();
           $('#userMessage1').empty();
+
           $.ajax({
           type: 'GET',
           url:'https://api.spotify.com/v1/search?type=artist&query=' + searchQuery,
@@ -46,6 +47,7 @@ $( document ).ready(function() {
       }
       response.artists.items.forEach(function(artist) {
         
+        if(artist.images.length >0) {
         $('#userMessage').text("Here are the artists you were looking for:");
         $('#listofArtists').append('<hr>'+ "<li>" + 
           '<button class= "btn btn-primary" id="'+ artist.id +'" type="submit">'+ artist.name +'</button>' +"</li>"+ 
@@ -53,7 +55,8 @@ $( document ).ready(function() {
         $('.searchResults').show();
         $('.error-messages').hide();
         $('.artistAlbums').hide();
- 
+        
+        }
       })
     }
 
@@ -71,6 +74,7 @@ $( document ).ready(function() {
     }
 
 function Fail(jqXHR, status, errorThrown){
+      
        $(".error-messages").text("Something Went Wrong!").fadeIn();
 
 }
