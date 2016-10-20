@@ -47,11 +47,16 @@ $( document ).ready(function() {
       }
       response.artists.items.forEach(function(artist) {
         
-        if(artist.images.length >0) {
+        if(artist.images.length >0 ) {
         $('#userMessage').text("Here are the artists you were looking for:");
         $('#listofArtists').append('<hr>'+ "<li>" + 
           '<button class= "btn btn-primary" id="'+ artist.id +'" type="submit">'+ artist.name +'</button>' +"</li>"+ 
-          '<img src="' + artist.images[0].url + '" alt="jQuery" width="160" height="160">');   
+          '<img src="' + artist.images[0].url + '" alt="jQuery" width="160" height="160">' + 
+          '<h4>' + 'Followers: ' + artist.followers.total + '</h4>' +
+          '<h4>' + 'Genres: ' + artist.genres + '</h4>' +
+          '<h4>' + 'Popularity: ' + artist.popularity + '</h4>' +
+          '<h4> <a href="' + artist.external_urls.spotify + '">' + 'More Info..' + '</a> </h4>');
+
         $('.searchResults').show();
         $('.error-messages').hide();
         $('.artistAlbums').hide();
