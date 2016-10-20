@@ -13,4 +13,7 @@ hr{
    border: 1px solid #ccc;
 }
 
+#noData {
+	display: none;
+}
 
