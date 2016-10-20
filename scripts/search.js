@@ -1,14 +1,17 @@
 
 $('#search-btn').click(
 
+ 
+
   function(event){
 
     event.preventDefault();
     var searchQuery = $('#searchStr').val();
     searchQuery = searchQuery.split(" ").join("%20");
-  
+    
     $('#listofArtists').empty();
- 
+    $('#listofAlbums').empty();
+    $('#userMessage1').empty();
     $.ajax({
     type: 'GET',
     url:'https://api.spotify.com/v1/search?type=artist&query=' + searchQuery,
