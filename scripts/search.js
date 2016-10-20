@@ -69,7 +69,7 @@ $( document ).ready(function() {
        
           $('.artistAlbums').focus();
       response.items.forEach(function(album) {
-        $('#userMessage1').text("Here are few albums of the artist selected:");
+        $('#userMessage1').text("Here are few albums of the artist:");
         $('#listofAlbums').append('<hr>'+ "<li>"  + album.name +"</li>"+ 
           '<img src="' + album.images[0].url + '" alt="jQuery" width="160" height="160">');   
           $('.artistAlbums').show();
@@ -80,7 +80,7 @@ $( document ).ready(function() {
 
 function Fail(jqXHR, status, errorThrown){
       
-       $(".error-messages").text("Something Went Wrong!").fadeIn();
+       $(".error-messages").text("Something went wrong! Please enter a valid artist name.").fadeIn();
 
 }
 
