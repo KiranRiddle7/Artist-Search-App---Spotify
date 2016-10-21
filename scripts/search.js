@@ -75,6 +75,10 @@ $( document ).ready(function() {
           '<h4> <a href="' + album.external_urls.spotify + '">' + 'Listen To The Album..' + '</a> </h4>');
          
           $('.artistAlbums').show();
+          
+          $('html, body').animate({
+        scrollTop: $("#userMessage1").offset().top
+           }, 100);
 
       })  
 
@@ -87,5 +91,9 @@ function Fail(jqXHR, status, errorThrown){
        $(".error-messages").text("Something went wrong! Please enter a valid artist name.").fadeIn();
 
 }
+
+$(window).bind("mousewheel", function() {
+    $("html, body").stop();
+});
 
 });
