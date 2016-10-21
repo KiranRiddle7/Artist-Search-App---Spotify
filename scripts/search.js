@@ -29,6 +29,7 @@ $( document ).ready(function() {
         $('#listofAlbums').empty();  
         var id = $(this).attr('id');
         $.ajax({
+          type: 'GET',
           url:'https://api.spotify.com/v1/artists/'+id+"/albums",
           dataType: "json",
           success: SearchAlbum,
@@ -41,7 +42,7 @@ $( document ).ready(function() {
 
       if(response.artists.items == 0 || response.artists.items == undefined) { 
         
-        $('.error-messages').text("Sorry! The requested artist information is not available currently. Please try searching for a different artist.").fadeIn();
+        $('.error-messages').text("Sorry! We did not find any matching results.").fadeIn();
         $('.searchResults').hide();
         $('.artistAlbums').hide();
       }
@@ -55,7 +56,7 @@ $( document ).ready(function() {
           '<h4>' + 'Followers: ' + artist.followers.total + '</h4>' +
           '<h4>' + 'Genres: ' + artist.genres + '</h4>' +
           '<h4>' + 'Popularity: ' + artist.popularity + '</h4>' +
-          '<h4> <a href="' + artist.external_urls.spotify + '">' + 'More Info..' + '</a> </h4>');
+          '<h4> <a href="' + artist.external_urls.spotify + '">' + 'More info..' + '</a> </h4>');
 
         $('.searchResults').show();
         $('.error-messages').hide();
@@ -72,7 +73,7 @@ $( document ).ready(function() {
         $('#userMessage1').text("Here are few albums of the artist:");
         $('#listofAlbums').append('<hr>'+ "<li>"  + album.name +"</li>"+ 
           '<img src="' + album.images[0].url + '" alt="jQuery" width="160" height="160">' +
-          '<h4> <a href="' + album.external_urls.spotify + '">' + 'Listen To The Album..' + '</a> </h4>');
+          '<h4> <a href="' + album.external_urls.spotify + '">' + 'Listen to the album..' + '</a> </h4>');
          
           $('.artistAlbums').show();
           
