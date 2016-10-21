@@ -82,6 +82,8 @@ $( document ).ready(function() {
 
 function Fail(jqXHR, status, errorThrown){
       
+       $('.searchResults').hide();
+       $('.artistAlbums').hide();
        $(".error-messages").text("Something went wrong! Please enter a valid artist name.").fadeIn();
 
 }
