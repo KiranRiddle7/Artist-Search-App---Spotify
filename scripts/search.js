@@ -71,7 +71,9 @@ $( document ).ready(function() {
       response.items.forEach(function(album) {
         $('#userMessage1').text("Here are few albums of the artist:");
         $('#listofAlbums').append('<hr>'+ "<li>"  + album.name +"</li>"+ 
-          '<img src="' + album.images[0].url + '" alt="jQuery" width="160" height="160">');   
+          '<img src="' + album.images[0].url + '" alt="jQuery" width="160" height="160">' +
+          '<h4> <a href="' + album.external_urls.spotify + '">' + 'Listen To The Album..' + '</a> </h4>');
+         
           $('.artistAlbums').show();
 
       })  
